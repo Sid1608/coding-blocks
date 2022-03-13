@@ -7,6 +7,7 @@ void PrintArray(int a[],int n){
 bool compare(int a,int b){
     return a>b;//sort in descending order
 }
+//passing function as argument
 void BubbleSort(int a[],int n,bool(&myCompare)(int a,int b))){
     for(int i=0;i<n-1;i++){
         for(int j=0;j<n-i-1;j++){
