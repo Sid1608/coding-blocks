@@ -32,6 +32,29 @@ void MaximumSumSubarray(int a[],int n){
         cout<<a[i]<<" ";
     }
 }
+void MaximumSumSubarray2(int a[],int n){
+    int max_sum=INT_MIN;
+    int wi,wj;
+    int csum[1000]={0};
+    //pre computation
+    for(int i=1;i<n;i++){
+        csum[i]+=a[i]+csum[i-1];
+    }
+    for(int i=0;i<n;i++){
+        for(int j=i;j<n;j++){
+            int sum=csum[j]-csum[i-1];
+            if(max_sum<sum){
+                max_sum=sum;
+                wi=i;wj=j;
+            }
+            // max_sum=max(max_sum,sum);
+        }
+    }
+    cout<<max_sum<<endl;
+    for(int i=wi;i<=wj+1;i++){
+        cout<<a[i]<<" ";
+    }
+}
 int main() {
 	int a[]={5,3,1,2,4};
     int n=sizeof(a)/sizeof(int),i,j;
