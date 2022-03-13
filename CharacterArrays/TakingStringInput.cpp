@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-void readline(char a[],char delimeter){
+void readline(char a[],char delimeter='\n'){
     int i=0;
     char ch=cin.get();
     while(ch!=delimeter){
@@ -15,8 +15,12 @@ int main() {
     //cin ignores white spaces
     // cin>>a;
     // cout<<a<<endl;
+    // readline(a);
     // readline(a,'\n');
-    readline(a,'$');
+    // readline(a,'$');
+    //null is alos counter as character here
+    cin.getline(a,100);
+    cin.getline(a,5);//take input of only 4 char
     cout<<a<<endl;
     
    
