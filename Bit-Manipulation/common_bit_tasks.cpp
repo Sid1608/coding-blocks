@@ -25,15 +25,29 @@ int updateBit(int n,int i,int v){
     n=cleared_n|(1<<v);
     return n;
 }
+int clearLastIBits(int n,int i){
+    //from position i+1 to 0
+    int mask=(-1<<i);
+    return n&mask;
+}
+int clearRangeItoJ(int n,int i,int j){
+    int ones=(~0);
+    int a=ones<<(j+1);
+    int b=(1<<i)-1;
+    int mask=a|b;
+    int ans=n and mask;
+
+    return ans;
+}
 
 int main(){
-    int n=5;
-    int i;
-    cin>>i;
+    int n,i,j;
+    cin>>n>>i>>j;
     cout<<isOdd(n);
     cout<<getBit(n,i);
     cout<<setBit(n,i);
     cout<<clearBit(n,i);
     cout<<updateBit(n,4,1);
+    cout<<clearRangeItoJ(n,i,j);
     return 0;
 }
