@@ -3,11 +3,13 @@
 
 using namespace std;
 //Implementation of stack data structure using vector 
+template<typename T,typename U>
 class Stack{
     private:
-        vector<int>v;
+        vector<T>v;
+        vector<U>v2;
     public:
-        void push(int data){
+        void push(T data){
             v.push_back(data);
         }
         bool empty(){
@@ -18,12 +20,12 @@ class Stack{
                 v.pop_back();
             }
         }
-        int top(){
+        T top(){
             return v[v.size()-1];
         }
 }
 int main(){
-    Stack s;
+    Stack<int,int> s;
     for(int i=1;i<=5;i++){
         s.push(i*i);
     }
@@ -31,6 +33,15 @@ int main(){
     while(!s.empty()){
         cout<<s.top()<<endl;
         s.pop();
+    }
+    Stack<char,int> sch;
+    for(int i=65;i<=70;i++){
+        sch.push(i);
+    }
+    //try to print the content of the stack by popping each element 
+    while(!sch.empty()){
+        cout<<sch.top()<<endl;
+        sch.pop();
     }
     return 0;
 }
